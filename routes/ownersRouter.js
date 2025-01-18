@@ -23,8 +23,8 @@ if(process.env.NODE_ENV === 'development'){
     });
 }
 
-router.get('/',(req,res)=>{
-    res.send('Owner Router');
+router.get('/admin',(req,res)=>{
+    res.render('createproducts',{success:[]});
 });
 
 
