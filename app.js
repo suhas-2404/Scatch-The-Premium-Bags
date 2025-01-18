@@ -17,11 +17,11 @@ app.set('view engine','ejs');
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')));
 
-
+app.use('/',indexRouter);
 app.use('/owners',ownersRouter);
 app.use('/users',userRouter);
 app.use('/products',productRouter);
-app.use('/',indexRouter);
+
 
 app.listen(3000,()=>{
     console.log('Server is running on port 3000');
