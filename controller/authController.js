@@ -38,10 +38,11 @@ module.exports.userLogin = async function userLogin(req,res){
             if(result){
                 let token=generateToken(user);
                 res.cookie('token',token);
-                res.send('User logged in successfully');
+                res.render('shop',{products:[]});
             }
             else{
-                res.status(400).send('Invalid credentials');
+                req.flash('error','Invalid email or password');
+                res.redirect('/');
             }
         });
     }
@@ -50,3 +51,7 @@ module.exports.userLogin = async function userLogin(req,res){
     }
 }
 
+module.exports.userLogout = async function userLogout(req,res){
+    res.clearCookie('token');
+    res.redirect('/');
+}
