@@ -12,11 +12,14 @@
 <body class="font-['helvetica_now_display']">
     <nav class="w-full px-5 py-3 flex justify-between">
         <h3 class="text-xl">Scatch</h3>
+        <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true %>
+        <% if(loggedin){ %>
         <div class="flex gap-5">
             <a href="">Shop</a>
-            <a href="">Cart</a>
+            <a href="/cart">Cart</a>
             <a href="">My Account</a>
             <a class="text-red-600" href="/users/logout">Logout</a>
         </div>
+        <% } %>
     </nav>
 

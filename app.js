@@ -22,7 +22,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')));
 app.use(             
     expressSession({  // express-session is a package that allows you to store session data in the server. This is useful for storing user data across multiple requests.
-    secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
     secret: process.env.EXPRESS_SESSION_SECRET
