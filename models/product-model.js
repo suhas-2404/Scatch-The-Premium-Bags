@@ -11,7 +11,11 @@ const productSchema = new mongoose.Schema({
     },
     bgcolor: String,
     panelcolor: String,
-    textcolor: String
+    textcolor: String,
+    isNew: {
+        type: Boolean,
+        default: false  // New products default to false
+    }
 });
 
 module.exports = mongoose.model('Product', productSchema);
