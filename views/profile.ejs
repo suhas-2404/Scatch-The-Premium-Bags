@@ -1,0 +1,20 @@
+<%- include('./partials/header') %>
+
+<div class="container mx-auto mt-10 px-4 sm:px-6 lg:px-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-gray-800">Welcome, <%= user.fullname %></h2>
+
+        <div class="mt-6 space-y-4">
+            <h3 class="text-2xl font-semibold text-gray-700">Profile Information</h3>
+            <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                <ul class="list-none space-y-2 text-lg text-gray-600">
+                    <li><strong class="font-semibold text-gray-800">Email:</strong> <%= user.email %></li>
+                    <li><strong class="font-semibold text-gray-800">Contact:</strong> <%= user.contact %></li>
+                    <li><strong class="font-semibold text-gray-800">Orders:</strong> <%= user.orders.length %> Orders</li>
+                    <li><strong class="font-semibold text-gray-800">Cart:</strong> <%= user.cart.length %> Items</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <%- include('./partials/footer') %>
