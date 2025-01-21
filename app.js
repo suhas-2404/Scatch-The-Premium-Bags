@@ -24,7 +24,12 @@ app.use(
     expressSession({  // express-session is a package that allows you to store session data in the server. This is useful for storing user data across multiple requests.
     resave: false,
     saveUninitialized: true,
-    secret: process.env.EXPRESS_SESSION_SECRET
+    secret: process.env.EXPRESS_SESSION_SECRET,
+    cookie: {
+        secure: process.env.NODE_ENV === "production", // Secure cookies in production
+        httpOnly: true, // Prevent client-side access
+        maxAge: 1000 * 60 * 60 * 24 // 1-day expiration
+    }
 }));
 app.use(flash());
 
