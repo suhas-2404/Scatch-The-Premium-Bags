@@ -19,7 +19,20 @@ module.exports.registerUser = async function registerUser(req,res){
                 });
               let token=generateToken(user);
               res.cookie('token',token);
-              res.send("User created successfully");  
+              let sortby = req.query.sortby;
+              let category = req.query.category;
+              let availability = req.query.availability;
+              let discount = req.query.discount;
+              let price = req.query.price;
+              let products = await productModel.find();
+              res.render("shop", {
+                  products,
+                  sortby,
+                  category,
+                  availability,
+                  discount,
+                  price
+              });  
             });
         });   
     }
