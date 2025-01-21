@@ -55,8 +55,11 @@ router.get("/shop", async (req, res) => {
     } catch (error) {
         console.error("Error fetching products:", error);
         res.status(500).send("Internal Server Error");
-    }
+    }
 });
+
+
+
 
 router.get('/cart',isLoggedIn,async(req,res)=>{
     let user=await userModel.findOne({email:req.user.email}).populate('cart');
